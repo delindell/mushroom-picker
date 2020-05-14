@@ -12,8 +12,9 @@ class Forest extends React.Component {
 
   pickMushroomEvent = (e) => {
     e.preventDefault();
-    const { pickMushroom } = this.props;
+    const { pickMushroom, checkShrooms } = this.props;
     pickMushroom();
+    checkShrooms();
   }
 
   render() {

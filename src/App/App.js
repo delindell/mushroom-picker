@@ -23,13 +23,19 @@ class App extends React.Component {
     this.setState({ mushrooms, basket });
   }
 
+  checkShrooms = () => {
+    mushroomData.checkMushroomsInBasket();
+    const mushrooms = mushroomData.getMushrooms();
+    const basket = mushroomData.getBasket();
+    this.setState({ mushrooms, basket });
+  }
 
   render() {
     const { mushrooms, basket } = this.state;
     return (
       <div className="App">
       <h1>Mushroom Picker App</h1>
-      <Forest mushrooms={mushrooms} pickMushroom={this.pickMushroom}/>
+      <Forest mushrooms={mushrooms} pickMushroom={this.pickMushroom} checkShrooms={this.checkShrooms}/>
       <Basket basket={basket} />
       </div>
     );

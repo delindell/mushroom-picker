@@ -183,6 +183,23 @@ const mushrooms = [
   },
 ];
 
+const checkMushroomsInBasket = () => {
+  basket.forEach((mushroom) => {
+    if (mushroom.isDeadly) {
+      basket.splice(0);
+    } else if (mushroom.isPoisonous) {
+      basket.splice(0, 2);
+      basket.pop();
+    } else if (mushroom.isMagic) {
+      const filteredShrooms = mushrooms.filter((shroom) => !shroom.isDeadly && !shroom.isPoisonious && !shroom.isMagic);
+      const shroomOne = filteredShrooms[Math.floor(Math.random() * mushrooms.length)];
+      const shroomTwo = filteredShrooms[Math.floor(Math.random() * mushrooms.length)];
+      const shroomThree = filteredShrooms[Math.floor(Math.random() * mushrooms.length)];
+      basket.push(shroomOne, shroomTwo, shroomThree);
+    }
+  });
+};
+
 const pickAMushroom = () => {
   const randomMushroom = mushrooms[Math.floor(Math.random() * mushrooms.length)];
   basket.push(randomMushroom);
@@ -192,4 +209,9 @@ const getMushrooms = () => mushrooms;
 
 const getBasket = () => basket;
 
-export default { getMushrooms, getBasket, pickAMushroom };
+export default {
+  getMushrooms,
+  getBasket,
+  pickAMushroom,
+  checkMushroomsInBasket,
+};

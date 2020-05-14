@@ -1,3 +1,20 @@
 .Mushroom {
-  display: block;
+  .deadly-mush{
+    background-color: red;
+    color: white;
+  }
+  .magic-mush {
+    background-color: purple;
+    color: white;
+  }
+  .poisonous-mush {
+    background-color: royalblue;
+    color: white;
+  }
+  .card {
+    max-height: auto;
+    img {
+      max-height: 300px;
+    }
+  }
 }
