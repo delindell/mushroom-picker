@@ -17,16 +17,16 @@ class App extends React.Component {
   }
 
   pickMushroom = () => {
-    mushroomData.pickAMushroom();
     const mushrooms = mushroomData.getMushrooms();
     const basket = mushroomData.getBasket();
+    mushroomData.pickAMushroom();
     this.setState({ mushrooms, basket });
   }
 
   checkShrooms = () => {
-    mushroomData.checkMushroomsInBasket();
     const mushrooms = mushroomData.getMushrooms();
     const basket = mushroomData.getBasket();
+    mushroomData.checkMushroomsInBasket();
     this.setState({ mushrooms, basket });
   }
 
