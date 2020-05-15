@@ -8,6 +8,7 @@ class Forest extends React.Component {
   static propTypes = {
     mushrooms: PropTypez.arrayOf(mushroomShape.mushroomShape),
     pickMushroom: PropTypez.func.isRequired,
+    checkShrooms: PropTypez.func.isRequired,
   }
 
   pickMushroomEvent = (e) => {
@@ -23,10 +24,10 @@ class Forest extends React.Component {
       <Mushroom key={mushroom.id} mushroom={mushroom} />
     ));
     return (
-      <div>
-        <h1>Forest Full O' Shrooms</h1>
-        <button className="btn btn-primary" onClick={this.pickMushroomEvent}>Pick a Mushroom</button>
-        <div className="Forest d-flex flex-wrap">
+      <div className="Forest">
+        <h1 className="text-success"><i className="fas fa-tree"></i> Full O' Shrooms</h1>
+        <button className="btn btn-outline-success" onClick={this.pickMushroomEvent}>Pick a Mushroom</button>
+        <div className="d-flex flex-wrap">
         {makeMushrooms}
         </div>
       </div>
