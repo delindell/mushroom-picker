@@ -1,4 +1,4 @@
-const basket = [];
+let basket = [];
 
 const mushrooms = [
   {
@@ -183,6 +183,33 @@ const mushrooms = [
   },
 ];
 
+const checkMushroomsInBasket = () => {
+  const sortedBasket = Array.from(new Set(basket));
+  console.log('sortedbasket', sortedBasket);
+  basket.forEach((mushroom) => {
+    if (mushroom.isDeadly) {
+      basket = [];
+      alert('You\'re dead');
+    } else if (basket.length >= 3 && mushroom.isPoisonous) {
+      basket.pop();
+      basket.splice(0, 2);
+      alert('You picked a poisonous mushroom, you\'re probably going to die');
+    } else if (basket.length < 3 && mushroom.isPoisonous) {
+      basket.pop();
+      alert('You picked a poisonous mushroom, you\'re probably going to die');
+    } else if (mushroom.isMagic) {
+      const filteredShrooms = mushrooms.filter((shroom) => !shroom.isDeadly && !shroom.isPoisonous && !shroom.isMagic);
+      const shroomOne = filteredShrooms[Math.floor(Math.random() * filteredShrooms.length)];
+      const shroomTwo = filteredShrooms[Math.floor(Math.random() * filteredShrooms.length)];
+      const shroomThree = filteredShrooms[Math.floor(Math.random() * filteredShrooms.length)];
+      basket.push(shroomOne, shroomTwo, shroomThree);
+      console.log('magic hit');
+    } else if (sortedBasket.length === 15) {
+      console.log('you won');
+    }
+  });
+};
+
 const pickAMushroom = () => {
   const randomMushroom = mushrooms[Math.floor(Math.random() * mushrooms.length)];
   basket.push(randomMushroom);
@@ -192,4 +219,9 @@ const getMushrooms = () => mushrooms;
 
 const getBasket = () => basket;
 
-export default { getMushrooms, getBasket, pickAMushroom };
+export default {
+  getMushrooms,
+  getBasket,
+  pickAMushroom,
+  checkMushroomsInBasket,
+};

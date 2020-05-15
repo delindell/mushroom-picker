@@ -17,20 +17,29 @@ class App extends React.Component {
   }
 
   pickMushroom = () => {
-    mushroomData.pickAMushroom();
     const mushrooms = mushroomData.getMushrooms();
     const basket = mushroomData.getBasket();
+    mushroomData.pickAMushroom();
     this.setState({ mushrooms, basket });
   }
 
+  checkShrooms = () => {
+    const mushrooms = mushroomData.getMushrooms();
+    const basket = mushroomData.getBasket();
+    mushroomData.checkMushroomsInBasket();
+    this.setState({ mushrooms, basket });
+  }
 
   render() {
     const { mushrooms, basket } = this.state;
     return (
       <div className="App">
-      <h1>Mushroom Picker App</h1>
-      <Forest mushrooms={mushrooms} pickMushroom={this.pickMushroom}/>
-      <Basket basket={basket} />
+        <h1>Mushroom Picker App</h1>
+        <Forest mushrooms={mushrooms} pickMushroom={this.pickMushroom} checkShrooms={this.checkShrooms}/>
+        <Basket basket={basket} />
+        <footer>
+          <p>Mushroom Picking With Davis &copy;2020</p>
+        </footer>
       </div>
     );
   }
