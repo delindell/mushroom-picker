@@ -1,11 +1,13 @@
 import React from 'react';
+import PropTypez from 'prop-types';
 import Mushroom from '../Mushroom/Mushroom';
-import './Basket.scss';
 import mushroomShape from '../../helpers/propz/mushroomShape';
+import './Basket.scss';
+
 
 class Basket extends React.Component {
   static propTypes = {
-    basket: mushroomShape.mushroomShape,
+    basket: PropTypez.arrayOf(mushroomShape.mushroomShape),
   }
 
   render() {

@@ -4,6 +4,7 @@ import mushroomData from '../helpers/data/mushroomData';
 import Forest from '../components/Forest/Forest';
 import Basket from '../components/Basket/Basket';
 
+
 class App extends React.Component {
   state = {
     mushrooms: [],
@@ -33,14 +34,14 @@ class App extends React.Component {
   render() {
     const { mushrooms, basket } = this.state;
     return (
-      <div className="App">
-        <h1>Mushroom Picker App</h1>
-        <Forest mushrooms={mushrooms} pickMushroom={this.pickMushroom} checkShrooms={this.checkShrooms}/>
-        <Basket basket={basket} />
-        <footer>
-          <p>Mushroom Picking With Davis &copy;2020</p>
-        </footer>
-      </div>
+        <div className="App">
+          <h1>Mushroom Picker App</h1>
+          <Forest mushrooms={mushrooms} pickMushroom={this.pickMushroom} checkShrooms={this.checkShrooms}/>
+          <Basket basket={basket} />
+          <footer>
+            <p>Mushroom Picking With Davis &copy;2020</p>
+          </footer>
+        </div>
     );
   }
 }
