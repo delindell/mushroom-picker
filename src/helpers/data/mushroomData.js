@@ -213,7 +213,7 @@ const removeDuplicatesFromBasket = () => {
   const sortedBasket = Array.from(new Set(basket));
   console.log('sorted basket', sortedBasket);
   if (sortedBasket.length === 15) {
-    WinnerModal();
+    alert('You WON!!!!');
   }
 };
 
