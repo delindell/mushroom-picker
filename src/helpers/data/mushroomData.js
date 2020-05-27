@@ -1,5 +1,3 @@
-import WinnerModal from '../../components/Winner/Winner';
-
 let basket = [];
 
 const mushrooms = [
@@ -211,7 +209,6 @@ const checkMushroomsInBasket = () => {
 
 const removeDuplicatesFromBasket = () => {
   const sortedBasket = Array.from(new Set(basket));
-  console.log('sorted basket', sortedBasket);
   if (sortedBasket.length === 15) {
     alert('You WON!!!!');
   }
