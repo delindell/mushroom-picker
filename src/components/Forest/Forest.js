@@ -26,7 +26,7 @@ class Forest extends React.Component {
     return (
       <div className="Forest">
         <h1 className="text-success"><i className="fas fa-tree"></i> Full O' Shrooms</h1>
-        <button className="btn btn-outline-success" onClick={this.pickMushroomEvent}>Pick a Mushroom</button>
+        <button className="btn btn-outline-success" onClick={this.pickMushroomEvent}>Pick a Shroom</button>
         <div className="d-flex flex-wrap">
         {makeMushrooms}
         </div>
